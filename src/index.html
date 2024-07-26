@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <!-- <link rel="stylesheet" href="/bootstrap.min.css"> -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/web3.min.js"></script>
+  <script src="js/truffle-contract.js"></script>
+  <script src="js/app.js"></script>
+  <title>Home | Kidney Donation</title>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+  <style>
+    body {
+      overflow-x: hidden;
+    }
+    #cover {
+      background: #222 url('https://www.hindustantimes.com/ht-img/img/2023/08/03/550x309/Of-the-total-15-renal-transplant-donors-in-2016--a_1691079991222.jpg') center center no-repeat;
+      background-size: cover;
+      height: 100%;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      position: relative;
+      top: -20px;
+      margin: 0px;
+    }
+
+    #content th {
+      font-size: 16px;
+    }
+
+    #content td {
+      font-size: 14px;
+    }
+
+
+    #cover-caption {
+      width: 100%;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* only used for background overlay not needed for centering */
+
+    form:before {
+      content: '';
+      height: 100%;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.3);
+      z-index: -1;
+      border-radius: 10px;
+    }
+
+    li a {
+      font-size: x-large;
+      margin: 5px;
+    }
+
+    #Logo {
+      position: relative;
+      top: 10px;
+      font-size: x-large;
+      /* margin-right: 10px; */
+    }
+
+    .navv {
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
+      aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="navv" class="collapse navbar-collapse" id="navbarTogglerDemo01">
+      <a class="navbar-brand" href="#" id="Logo">Kidney Donation</a>
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <li class="nav-item active">
+          <a class="nav-link" href="/index.html">Home<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/profile.html">Profile</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/how.html">How to Use</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="/about.html">About Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" id="account" style="float: right;">Account: Not Connected</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <section id="cover" class="min-vh-100">
+    <div id="cover-caption">
+      <div class="container">
+        <div class="row text-white">
+          <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4">
+            <h1 class="display-4 py-2 text-truncate">Donation form.</h1>
+            <div class="px-2">
+              <h3 style="margin-top: 0px;margin-bottom:30px"></h3>
+              <form onSubmit="App.storedata(); return false;">
+
+                <div class="col-auto">
+                  <label class="sr-only" for="inlineFormInputGroup">Enter Name</label>
+                  <div class="input-group mb-2 ">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">Enter Name</div>
+                    </div>
+
+                    <input class="form-control form-control-lg" type="text" id='name' />
+
+                  </div>
+                </div>
+
+
+                <div class="col-auto">
+                  <label class="sr-only" for="inlineFormInputGroup">Select Blood Group</label>
+                  <div class="input-group mb-2">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">Select Blood Group</div>
+                    </div>
+                    <select class="form-control form-control-lg" id="blood_group">
+                      <option value="A">A</option>
+                      <option value="B">B</option>
+                      <option value="AB">AB</option>
+                      <option value="O">O</option>
+
+                    </select>
+                  </div>
+                </div>
+
+                <div class="col-auto">
+                  <label class="sr-only" for="inlineFormInputGroup">Enter City</label>
+                  <div class="input-group mb-2">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">Enter City</div>
+                    </div>
+                    <input class="form-control form-control-lg" type="text" id='city' />
+                  </div>
+                </div>
+
+
+                <div class="col-auto">
+                  <label class="sr-only" for="inlineFormInputGroup">Enter Mobile</label>
+                  <div class="input-group mb-2">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">Enter Mobile</div>
+                    </div>
+                    <input class="form-control form-control-lg" type="text" id='mobile' />
+                  </div>
+                </div>
+
+                <div class="col-auto">
+                  <label class="sr-only" for="inlineFormInputGroup">Select Donor/Receiver</label>
+                  <div class="input-group mb-2">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">Select Donor/Receiver</div>
+                    </div>
+                    <select class="form-control form-control-lg" id="door">
+                      <option value="1">Donor</option>
+                      <option value="0">Receiver</option>
+
+                    </select>
+                  </div>
+                </div>
+
+
+                <div class="col-auto">
+                  <label class="sr-only" for="inlineFormInputGroup">Enter HLA</label>
+                  <div class="input-group mb-2">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">Enter HLA</div>
+                    </div>
+                    <input class="form-control form-control-lg" type="text" id='hla' />
+                  </div>
+                </div>
+
+
+                <div class="col-auto">
+                  <label class="sr-only" for="inlineFormInputGroup">Enter Month</label>
+                  <div class="input-group mb-2">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">Enter Month</div>
+                    </div>
+                    <select class="form-control form-control-lg" id="month">
+                      <option value="1">1 Month</option>
+                      <option value="3">3 Month</option>
+                    </select>
+                  </div>
+                </div>
+
+
+                <button type="submit" class="btn btn-secondary btn-lg" style="align-items: center;">Submit</button>
+              </form>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <br><br>
+
+
+
+
+  <div class="row" style='height:100%;text-align: center;display: flex;align-items: center;position: relative;'>
+    <div class="col-md-8">
+      <!-- <p id="trans" class="text-center"></p> -->
+      <div class="container" style="width: 650px;">
+        <div class="row">
+          <div class="col-lg-12" style="margin-left: 40%;">
+            <h1 class="text-center" style="margin-left: 10%; font-size: x-large;">Kidney Donation Candidate</h1>
+            <hr />
+            <br />
+            <p id="trans1" class="text-center" style="font-size: large;"></p>
+            <div>
+              <div id="loader">
+                <p class="text-center">Loading...</p>
+              </div>
+
+              <table class="table table-striped table-bordered table-sm" id="content" style="display: none;">
+                <thead class="thead-dark">
+                  <tr>
+                    <th scope="col">Account</th>
+                    <!-- <th scope="col">Name</th> -->
+                    <th scope="col">Blood Group</th>
+                    <th scope="col">Donor/Receiver</th>
+                    <!-- <th scope="col">Mobile</th> -->
+                    <th scope="col">HLA</th>
+                    <th scope="col">City</th>
+                    <th scope="col">Donation State</th>
+                    <th scope="col">Block</th>
+                    <th scope="col">Month</th>
+                  </tr>
+                </thead>
+
+                <tbody id="candidate">
+                </tbody>
+              </table>
+
+              <hr />
+              <!-- <p id="don" class="text-center"></p>  -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </div>
+  </div>
+
+
+</body>
+
+</html>

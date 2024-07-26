@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>How it Work | Kidney Donation</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/web3.min.js"></script>
+    <script src="js/truffle-contract.js"></script>
+    <script src="js/app.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+    <style type="text/css">
+        body {
+            margin: 0px;
+            padding: 0px;
+            overflow-x: hidden;
+        }
+
+        h1 {
+            border: 1px solid gray;
+            margin: 0;
+            box-shadow: 2px 2px 2px gray;
+            padding: 10px 10px;
+            text-align: center;
+        }
+
+        .container {
+            position: relative;
+            margin-bottom: 10%;
+        }
+
+        .cont1 {
+            margin-left: 5%;
+            position: absolute;
+            width: 50%;
+            height: 500px;
+            /* border: 1px solid black; */
+        }
+
+        .cont2 {
+            position: absolute;
+            width: 58%;
+            left: 50%;
+            /* border: 1px black solid; */
+        }
+
+        .imgg {
+            position: absolute;
+            top: 50px;
+            left: 150px;
+            z-index: -111;
+        }
+
+        p {
+            font-size: large;
+        }
+
+        .img3 {
+            position: absolute;
+            top: 300px;
+            left: 130px;
+        }
+
+        .img2 {
+            position: absolute;
+            top: 200px;
+        }
+
+        .container1 {
+            position: absolute;
+            top: 100%;
+            /* display: none; */
+        }
+
+        #soln {
+            display: flex;
+            margin-left: 25%;
+        }
+
+        #soln1 {
+            text-align: center;
+            font-size: larger;
+        }
+
+        .cont12 {
+            width: 45%;
+            /* margin-left: 25%; */
+            font-size: 18px;
+            margin-left: 10px;
+            /* border: 1px solid red; */
+            margin-top: -18%;
+            /* display: none; */
+        }
+
+        .cont11 {
+            position: relative;
+            /* margin-top: 10%; */
+            width: 45%;
+            margin-left: 50%;
+            font-size: large;
+            /* border: 1px solid red; */
+            /* display: none; */
+        }
+
+        #content1 {
+            font-size: 20px;
+        }
+
+        li a {
+            font-size: x-large;
+            margin: 5px;
+        }
+
+        #Logo {
+            position: relative;
+            top: 6px;
+            font-size: x-large;
+            /* margin-right: 10px; */
+        }
+
+        .navv {
+            display: block;
+        }
+
+        /* tap steps  */
+
+        .tab {
+            float: left;
+            /* border: 1px solid #ccc; */
+            background-color: #f1f1f1be;
+            width: 30%;
+            height: 300px;
+        }
+
+        /* Style the buttons inside the tab */
+
+        .tab button {
+            display: block;
+            background-color: inherit;
+            color: black;
+            padding: 22px 16px;
+            width: 100%;
+            border: none;
+            outline: none;
+            text-align: left;
+            cursor: pointer;
+            transition: 0.3s;
+            font-size: 17px;
+        }
+
+        /* Change background color of buttons on hover */
+
+        .tab button:hover {
+            background-color: #ddd;
+        }
+
+        /* Create an active/current "tab button" class */
+
+        .tab button.active {
+            background-color: #ccc;
+        }
+
+        /* Style the tab content */
+
+        .tabcontent {
+            float: left;
+            padding: 0px 12px;
+            /* border: 1px solid #ccc; */
+            width: 70%;
+            border-left: none;
+            height: 300px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
+            aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navv" class="collapse navbar-collapse" id="navbarTogglerDemo01">
+            <a class="navbar-brand" href="#" id="Logo">Kidney Donation</a>
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="/index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/profile.html">Profile</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/how.html">How to Use<span class="sr-only">(current)</span></a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/about.html">About Us</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+
+
+
+    <div>
+        <div class="tab">
+            <button class="tablinks" onclick="openCity(event, 'Step1')" id="defaultOpen">1.Install Metamask<span> <img
+                        src="https://i.pinimg.com/originals/02/37/62/023762b6aec2a2249b8fdfb638f00ef3.png" width="25px"
+                        height="25px" alt=""></span></button>
+            <button class="tablinks" onclick="openCity(event, 'Step2')">2.Create Account<span> <img
+                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Microsoft_Account.svg/1200px-Microsoft_Account.svg.png"
+                        width="25px" height="25px" alt=""></span></button>
+            <button class="tablinks" onclick="openCity(event, 'Step3')">3.Fill Form <span> <img
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTCHrgi_IxP_DxApW-K7qNGrvRxU0m7RRXQnimq0tFBew0g5YPB&usqp=CAU"
+                        width="25px" height="25px" alt=""></span></button>
+            <button class="tablinks" onclick="openCity(event, 'Step4')">4.Information view <span> <img
+                        src="https://cdn4.iconfinder.com/data/icons/linecon/512/info-512.png" width="25px"
+                        height="25px" alt=""></span></button>
+            <button class="tablinks" onclick="openCity(event, 'Step5')">5.Matching <span> <img
+                        src="https://cdn4.vectorstock.com/i/1000x1000/67/28/monochrome-round-matching-puzzle-icon-vector-5106728.jpg"
+                        width="25px" height="25px" alt=""></span></button>
+            <button class="tablinks" onclick="openCity(event, 'Step6')">6.Time limit <span> <img
+                        src="https://cdn1.iconfinder.com/data/icons/delivery-icostory-black-and-white/64/button-delivery_time-clock-deadline-limit-512.png"
+                        width="25px" height="25px" alt=""></span></button>
+            <button class="tablinks" onclick="openCity(event, 'Step7')">7.100% Matching <span> <img
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSHsy26Cj8R5L9SCNq6Z-pQS-08w5lHA-gRSF-ypEkZJ8iH9qFl&usqp=CAU"
+                        width="25px" height="25px" alt=""></span></button>
+        </div>
+
+        <div id="Step1" class="tabcontent">
+            <h3 style="font-size: x-large ;">Install Metamask</h3>
+            <br>
+            <h4 style="font-size: large;">How to use step one is install Metamask</h4>
+            <p>MetaMask (https://metamask.io/) is a browser extensions that lets you run dApps without being part of the
+                Ethereum network as a Ethereum Node. Instead, it lets you connect to another Ethereum Node called INFURA
+                (https://infura.io/) and run
+                smart contracts on that Node. MetaMask manages your Ethereum wallet, which contains your Ethers (or
+                money), and allows you to send and receive Ethers through a dApp of interest. It is a pretty neat tool.
+            </p>
+            <br>
+        </div>
+
+
+
+        <div id="Step2" class="tabcontent">
+            <h3 style="font-size: x-large ;">Create Account</h3>
+            <br>
+            <h4 style="font-size:large;">Create a account on Metamask</h4>
+            <p>1.Click the MetaMask logo (located in the top right area of your Chrome browser)</p>
+            <p>2.Read the MetaMask PRIVACY NOTICE and TERMS OF USE. Start the sign-up process by clicking "Accept"</p>
+            <p>3.Create your MetaMask vault password <br> After you confirm your vault password, you will see a new
+                window
+                showing a list of 12 words. Please ensure you have saved them somewhere safe and secret. </p>
+            <p>4. Click “I'VE COPIED IT SOMEWHERE SAFE”</p>
+            <p>5.Vault created</p>
+        </div>
+
+        <div id="Step3" class="tabcontent">
+            <h3 style="font-size: x-large ;">Form</h3>
+            <br>
+            <h4 style="font-size:large;">Fill the form</h4>
+            <p>The form contain some basic data regarding the donor or the receiver such as blood group,HLA,time period
+                etc
+            </p>
+            <img src="./images/donationform.png">
+        </div>
+        <div id="Step4" class="tabcontent">
+            <h3 style="font-size: x-large ;">Information View</h3>
+            <br>
+            <h4 style="font-size:large;">See all the information without knowing them</h4>
+            <p>The information is visible to everyone without any personal detail such as name,here transperancy come in
+                the
+                picture</p>
+            <img src="./images/candidate.png">
+        </div>
+        <div id="Step5" class="tabcontent">
+            <h3 style="font-size: x-large ;">Matching</h3>
+            <br>
+            <h4 style="font-size:large;">Wait till the matching is Done</h4>
+            <p> Smart contract is used to match the the kidney of the "Donor" and thge "Receiver".</p>
+            <img id="soln"
+                src="https://static.wixstatic.com/media/241b70_07da88b0e19d499f92cab4adf152e93f~mv2.png/v1/fill/w_528,h_246,al_c,q_85,usm_0.66_1.00_0.01/241b70_07da88b0e19d499f92cab4adf152e93f~mv2.webp"
+                alt="">
+        </div>
+
+        <div id="Step6" class="tabcontent">
+            <h3 style="font-size: x-large ;">Time Limit</h3>
+            <br>
+            <!-- <h4 style="font-size:large;">Create a account on Metamask</h4> -->
+            <p>If month of kidney require cross the limit then it will expire the request. </p>
+            <p><b>1 month:</b> If Donor/Receiver Register for 1 month then algorithm work for 1 month after it doesnot
+                found
+                match then after 1 month it show <b>Not Found</b></p><br>
+            <p><b>3 month:</b> If Donor/Receiver Register for 3 month then algorithm work for 3 month after it doesnot
+                found
+                match then after 3 month it show <b>Not Found</b></p>
+        </div>
+        <div id="Step7" class="tabcontent">
+            <h3 style="font-size: x-large ;">100% Matching</h3>
+            <br>
+            <h4 style="font-size:large;">We use 100% matching</h4>
+            <p>We are use 100% matching algorithm because in that case lifespan is high.</p>
+            <img id="soln"
+                src="https://static.wixstatic.com/media/241b70_07da88b0e19d499f92cab4adf152e93f~mv2.png/v1/fill/w_528,h_246,al_c,q_85,usm_0.66_1.00_0.01/241b70_07da88b0e19d499f92cab4adf152e93f~mv2.webp"
+                alt="">
+        </div>
+
+    </div>
+
+    <script>
+        function openCity(evt, cityName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(cityName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+
+        // Get the element with id="defaultOpen" and click on it
+        document.getElementById("defaultOpen").click();
+    </script>
+
+
+
+</body>
+
+</html>

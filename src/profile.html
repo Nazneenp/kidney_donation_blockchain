@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Profile | Kidney Donation</title>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/web3.min.js"></script>
+  <script src="js/truffle-contract.js"></script>
+  <script src="js/profile.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</head>
+
+ <style>
+    body {
+        overflow-x: hidden;
+    }
+        li a {
+            font-size: x-large;
+            margin: 5px;
+        }
+        
+        #Logo {
+            position: relative;
+            top: 5px;
+            font-size: x-large;
+            /* margin-right: 10px; */
+        }
+        
+        .navv {
+            display: block;
+        }
+        
+        th,
+        td {
+            font-size: large;
+        }
+        
+        table {
+            list-style: none;
+            border: none;
+        }
+        
+        table,
+        th,
+        td {
+            border: 0;
+        }
+        
+        table {
+            border-collapse: collapse;
+        }
+    </style>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+            <a class="navbar-brand" href="#" id="Logo">Kidney Donation</a>
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="/index.html">Home</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/profile.html">Profile<span class="sr-only">(current)</span></a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/how.html">How to Use</a>
+                </li>
+
+                <li class="nav-item ">
+                    <a class="nav-link" href="/about.html">About Us</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link disabled" id="account" style="float: right;">Account: Not Connected</a>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+
+
+<!--   
+
+    <div class="container" style="width: 650px;">
+      <div class="row">
+        <div class="col-lg-12">
+          <h1 class="text-center">User Donation Profile</h1>
+          <hr/>
+          <br/>
+         
+          <div id="content">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">Account</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Blood Group</th>
+                  <th scope="col">Donor/Receiver</th>
+                  <th scope="col">Mobile</th>
+                  <th scope="col">HLA</th>
+                  <th scope="col">City</th>
+                  <th scope="col">Donation State</th>
+                  <th scope="col">Block</th>
+                  <th scope="col">Month</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="col" id="acc">Account</th>
+                  <th scope="col" id="names">Name</th>
+                  <th scope="col" id="blood">Blood Group</th>
+                  <th scope="col" id="donor">Donor/Receiver</th>
+                  <th scope="col" id="mobiles">Mobile</th>
+                  <th scope="col" id="hlas">HLA</th>
+                  <th scope="col" id="city">City</th>
+                  <th scope="col" id="state">Donation State</th>
+                  <th scope="col" id="block">Block</th>
+                  <th scope="col" id="month">Month</th>
+                  
+                </tr>
+
+              </tbody>
+            </table>
+            <hr/>
+           
+          </div>
+        </div>
+      </div>
+    </div> -->
+    <div class="container" style="width: 650px;">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="text-center">Profile</h1>
+
+                <br/>
+                <!-- <p id="trans1" class="text-center"></p> -->
+                <div id="content">
+                    <table class="table">
+
+                        <tr>
+                            <th scope="col" style="  border-top-width: 0px;">Account :</th>
+                            <td scope="col" id="acc" style="  border-top-width: 0px;">Account</td>
+                        </tr>
+                        <tr>
+
+                            <th scope="col" style="  border-top-width: 0px;">Name :</th>
+                            <td scope="col" id="names" style="  border-top-width: 0px;">Name</t>
+                        </tr>
+
+                        <tr>
+                            <th scope="col" style="  border-top-width: 0px;">Blood Group :</th>
+                            <td scope="col" style="  border-top-width: 0px;" id="blood">Blood Group</td>
+                        </tr>
+
+                        <tr>
+                            <th scope="col" style="  border-top-width: 0px;">Donor/Receiver :</th>
+                            <td scope="col" style="  border-top-width: 0px;" id="donor">Donor/Receiver</td>
+                        </tr>
+
+
+                        <tr>
+
+                            <th scope="col" style="  border-top-width: 0px;">Mobile :</th>
+                            <td scope="col" style="  border-top-width: 0px;" id="mobiles">Mobile</td>
+                        </tr>
+
+                        <tr>
+                            <th scope="col" style="  border-top-width: 0px;">HLA :</th>
+                            <td scope="col" style="  border-top-width: 0px;" id="hlas">HLA</td>
+                        </tr>
+
+                        <tr>
+                            <th scope="col" style="  border-top-width: 0px;">City :</th>
+
+                            <td scope="col" style="  border-top-width: 0px;" id="city">City</td>
+                        </tr>
+
+                        <tr>
+                            <th scope="col" style="  border-top-width: 0px;">Donation State :</th>
+
+                            <td scope="col" style="  border-top-width: 0px;" id="state">Donation State</td>
+                        </tr>
+
+                        <tr>
+                            <th scope="col" style="  border-top-width: 0px;">Block :</th>
+
+                            <td scope="col" style="  border-top-width: 0px;" id="block">Block</td>
+                        </tr>
+
+                        <tr>
+                            <th scope="col" style="  border-top-width: 0px;">Month :</th>
+                            <td scope="col" style="  border-top-width: 0px;" id="month">Month</td>
+                        </tr>
+
+                    </table>
+                    <hr/>
+                    <!-- <p id="blockid" class="text-center"></p> -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <p id='hlavalue'></p> -->
+    <!-- Edit the HlA Value -->
+    <!-- <form onSubmit="App.updatehla(); return false;">
+        Update HLA : <input type="text" name="description" id='hlavalue'><br>
+        <input type="text" name='id1' id='blockid' > 
+                      <input type="submit" value="Submit">
+    </form> -->
+
+    <!-- <p id="accountss" class="text-center"></p> -->
+</body>
+</html>
+
+
